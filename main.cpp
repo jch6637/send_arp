@@ -255,7 +255,7 @@ int main(int argc, char *argv[]) {
 	packet_to_arp_reply(payload);
 	fill_address(payload, my_mac, gate_ip, sender_mac, dest_ip);
 
-	for(i = 0;i < 1000; i++)
+	while( true)
 		pcap_sendpacket(handle,	(const u_char *)payload, sizeof(arp_packet));
 
 	free(buf);	
