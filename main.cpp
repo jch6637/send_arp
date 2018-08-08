@@ -17,6 +17,7 @@
 #include <sys/socket.h> 
 #include <unistd.h>
 
+#pragma pack(push, 1)
 typedef struct arp_packet
 {
 	uint8_t ether_dest_mac[6];
