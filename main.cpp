@@ -34,9 +34,6 @@ typedef struct arp_packet
 	uint8_t dest_ip[4];
 }arp_packet;
 
-
-//unsigned char *BROADCAST = "\xff\xff\xff\xff\xff\xff";
-//unsigned char *UNKNOW = "\x00\x00\x00\x00\x00\x00";
 #define BROADCAST "\xff\xff\xff\xff\xff\xff"
 #define UNKNOW "\x00\x00\x00\x00\x00\x00"
 #define ETHERNET 0x0100
@@ -256,7 +253,7 @@ int main(int argc, char *argv[]) {
 	packet_to_arp_reply(payload);
 	fill_address(payload, my_mac, gate_ip, sender_mac, dest_ip);
 
-	while( true)
+	while( true )
 		pcap_sendpacket(handle,	(const u_char *)payload, sizeof(arp_packet));
 
 	free(buf);	
